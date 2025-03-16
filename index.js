@@ -27,6 +27,11 @@ app.use('/users', userRoutes)
 app.use(subscriptionRoutes)
 app.use('/workflows',workflowRoute)
 
+
+app.get('/',(req,res)=>{
+    res.status(200).json({message:'Hello from subscription API'})
+})
+
 mongoose.connect(process.env.MONGODB_URL)
     .then(() => {
         console.log('Database Connected')
